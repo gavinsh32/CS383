@@ -1,4 +1,4 @@
-extends Label
+extends Control
 
 var _score
 
@@ -9,8 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = str(_score)
+	$Label.text = str(_score)
 	pass
 
-# func _on_enemy_hit():
-# 	_score += 1
+
+func _on_enemy_instance_enemy_hit() -> void:
+	_score += 1

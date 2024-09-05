@@ -1,6 +1,6 @@
 extends Area2D
 
-# signal enemy_hit 
+signal enemy_hit 
 
 @export var domain = 300	# total horizontal area to move around in
 @export var speed = 1		# horizontal speed
@@ -33,9 +33,7 @@ func _process(delta: float) -> void:
 	# clamp position to boundries
 	position.clamp(left_boundry, right_boundry)
 
-# func _on_area_entered(area: Area2D) -> void:
-# 	hide()
-# 	enemy_hit.emit()
-#
-#	# disable collider safely as not to detect the same collision
-# 	$CollisionShape2D.set_deferred("disabled", true)
+func _on_area_entered(area: Area2D) -> void:
+	hide()
+	enemy_hit.emit()	# disable collider safely as not to detect the same collision
+	$CollisionShape2D.set_deferred("disabled", true)
