@@ -7,7 +7,7 @@ signal enemy_hit
 
 var moving_left			# horizontal direction
 var left_boundry	# Both of these represent the horizontal boundires as
-var right_boundry	# Vector2D which the enemy can move within
+var right_boundry	# Vector2D which the enemy can move within 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +17,7 @@ func _ready() -> void:
 	# defines left and right boundries
 	left_boundry = Vector2(position.x-(domain/2),position.y)
 	right_boundry = Vector2(position.x+(domain/2),position.y)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,6 +33,7 @@ func _process(delta: float) -> void:
 	
 	# clamp position to boundries
 	position.clamp(left_boundry, right_boundry)
+
 
 func _on_area_entered(area: Area2D) -> void:
 	hide()
